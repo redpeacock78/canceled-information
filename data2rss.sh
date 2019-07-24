@@ -6,7 +6,7 @@ TMP_DATA="$(mktemp)"
 
 ###FUNCTION###
 cat ./data.txt | while read LINE; do
-echo -e "        <item>\n            <title>${LINE}</title>\n            <link>https://www.kyoto-art.ac.jp/student/</link>\n            <description><![CDATA[休講情報 | 京都造形芸術大学 在学生専用サイト]]></description>\n            <pubData>$(LANG="C" date -d $(echo ${LINE} | tail -n1 | awk '{print $1}') "+%a, %d %b %Y %H:%M:%S %z JST")</pubData>\n        </item>"
+echo -e "        <item>\n            <title>${LINE}</title>\n            <link>https://www.kyoto-art.ac.jp/student/</link>\n            <description><![CDATA[休講情報 | 京都造形芸術大学 在学生専用サイト]]></description>\n            <pubData>$(LANG="C" date -d $(echo ${LINE} | tail -n1 | awk '{print $1}') "+%a, %d %b %Y %H:%M:%S %z")</pubData>\n        </item>"
 done > "${TMP_DATA}"
 
 
